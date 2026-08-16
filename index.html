@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#161a17">
+  <meta name="description" content="PyJourney — nhật ký học và luyện tập Python mỗi ngày.">
+  <title>PyJourney · Python learning tracker</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">Py</span><span>PyJourney<small data-i18n="brandSub">Học đều. Tiến xa.</small></span></div>
+      <nav id="nav">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span><b data-i18n="navDashboard">Tổng quan</b></button>
+        <button class="nav-item" data-view="journal"><span>◫</span><b data-i18n="navJournal">Nhật ký học</b></button>
+        <button class="nav-item" data-view="exercises"><span>⌘</span><b data-i18n="navExercises">Bài luyện tập</b></button>
+        <button class="nav-item" data-view="roadmap"><span>↗</span><b data-i18n="navRoadmap">Lộ trình</b></button>
+        <button class="nav-item" data-view="insights"><span>◒</span><b data-i18n="navInsights">Thống kê</b></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="quote"><span>“</span><p data-i18n="quote">Mỗi dòng code hôm nay là một bước tiến ngày mai.</p></div>
+        <button class="nav-item" data-view="settings"><span>⚙</span><b data-i18n="navSettings">Cài đặt</b></button>
+        <div class="profile"><div class="avatar">TK</div><div><strong>TK</strong><small>ttk1205tn@gmail.com</small></div></div>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <button class="icon-button menu-button" id="menuButton" aria-label="Menu">☰</button>
+        <div class="header-title"><small id="eyebrow">MONDAY · 17 AUGUST</small><h1 id="pageTitle">Tổng quan</h1></div>
+        <div class="header-actions">
+          <button class="lang-switch" id="langSwitch"><span class="active">VI</span><span>EN</span></button>
+          <button class="icon-button" id="themeButton" aria-label="Theme">☾</button>
+          <button class="primary-button" id="quickLog"><span>＋</span><span data-i18n="logToday">Ghi lại hôm nay</span></button>
+        </div>
+      </header>
+
+      <section class="view active" id="dashboardView">
+        <div class="hero">
+          <div><span class="pill" data-i18n="dayJourney">HÀNH TRÌNH MỖI NGÀY</span><h2><span data-i18n="hello">Chào Tuấn Khôi,</span><br><em data-i18n="keepMomentum">giữ vững nhịp học nhé.</em></h2><p data-i18n="heroText">Một phiên học tập trung hôm nay sẽ đưa bạn gần hơn đến mục tiêu Python của mình.</p></div>
+          <div class="hero-art" aria-hidden="true"><div class="code-card"><i></i><i></i><i></i><pre><span>def</span> grow(today):
+  return today + <b>1</b>
+
+<em>keep_coding()</em></pre></div><div class="orbit">✦</div></div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card accent"><div class="stat-icon">🔥</div><div><small data-i18n="currentStreak">Chuỗi hiện tại</small><strong><span id="streakValue">0</span> <i data-i18n="days">ngày</i></strong><p id="streakHint">Bắt đầu chuỗi hôm nay</p></div></article>
+          <article class="stat-card"><div class="stat-icon">◷</div><div><small data-i18n="studyTime">Thời gian học</small><strong><span id="minutesValue">0</span> <i data-i18n="minutes">phút</i></strong><p data-i18n="thisWeek">Trong tuần này</p></div></article>
+          <article class="stat-card"><div class="stat-icon">✓</div><div><small data-i18n="solved">Bài đã giải</small><strong><span id="solvedValue">0</span> <i data-i18n="exercises">bài</i></strong><p data-i18n="totalCompleted">Tổng số hoàn thành</p></div></article>
+          <article class="stat-card"><div class="stat-icon">◎</div><div><small data-i18n="weeklyGoal">Mục tiêu tuần</small><strong><span id="goalValue">0</span><i>%</i></strong><div class="progress"><span id="goalBar"></span></div></div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel today-panel"><div class="panel-head"><div><small data-i18n="todayPlan">KẾ HOẠCH HÔM NAY</small><h3 data-i18n="readySession">Sẵn sàng cho phiên học?</h3></div><span class="date-badge" id="dateBadge"></span></div><div id="todayEmpty" class="empty-state"><div class="empty-icon">{ }</div><h4 data-i18n="noLog">Chưa có nhật ký hôm nay</h4><p data-i18n="noLogDesc">Ghi lại chủ đề, thời gian và điều bạn đã học được.</p><button class="primary-button open-log" data-i18n="startLogging">Bắt đầu ghi chép</button></div><div id="todaySummary" class="today-summary hidden"></div></article>
+          <article class="panel"><div class="panel-head"><div><small data-i18n="last7Days">7 NGÀY GẦN ĐÂY</small><h3 data-i18n="consistency">Nhịp học tập</h3></div><span class="trend" id="weekTotal">0m</span></div><div class="week-chart" id="weekChart"></div><div class="chart-caption"><span><i class="dot study"></i><b data-i18n="studied">Đã học</b></span><span><i class="dot rest"></i><b data-i18n="rest">Chưa học</b></span></div></article>
+        </div>
+        <article class="panel recent-panel"><div class="panel-head"><div><small data-i18n="recentActivity">HOẠT ĐỘNG GẦN ĐÂY</small><h3 data-i18n="learningHistory">Lịch sử học tập</h3></div><button class="text-button" data-view-jump="journal" data-i18n="viewAll">Xem tất cả →</button></div><div id="recentLogs"></div></article>
+      </section>
+
+      <section class="view" id="journalView"><div class="section-intro"><div><span class="pill" data-i18n="dailyRecord">GHI CHÉP MỖI NGÀY</span><h2 data-i18n="journalTitle">Nhật ký học Python</h2><p data-i18n="journalDesc">Theo dõi thời gian, kiến thức và cảm nhận sau mỗi phiên học.</p></div><button class="primary-button open-log">＋ <span data-i18n="newLog">Nhật ký mới</span></button></div><div class="filter-row"><input id="logSearch" type="search" data-i18n-placeholder="searchLogs" placeholder="Tìm theo chủ đề hoặc ghi chú..."><select id="moodFilter"><option value="" data-i18n="allMoods">Mọi trạng thái</option><option value="great">🤩 Great</option><option value="good">🙂 Good</option><option value="okay">😐 Okay</option><option value="hard">😓 Hard</option></select></div><div class="journal-list" id="journalList"></div></section>
+
+      <section class="view" id="exercisesView"><div class="section-intro"><div><span class="pill">CODE · PRACTICE · REPEAT</span><h2 data-i18n="exerciseTitle">Bài luyện tập</h2><p data-i18n="exerciseDesc">Đánh dấu bài đã hoàn thành và xây nền tảng từng bước.</p></div><button class="secondary-button" id="addExercise">＋ <span data-i18n="addExercise">Thêm bài riêng</span></button></div><div class="exercise-filters" id="exerciseFilters"><button class="active" data-filter="all" data-i18n="all">Tất cả</button><button data-filter="beginner" data-i18n="beginner">Cơ bản</button><button data-filter="intermediate" data-i18n="intermediate">Trung cấp</button><button data-filter="advanced" data-i18n="advanced">Nâng cao</button></div><div class="exercise-grid" id="exerciseGrid"></div></section>
+
+      <section class="view" id="roadmapView"><div class="section-intro"><div><span class="pill" data-i18n="yourPath">CON ĐƯỜNG CỦA BẠN</span><h2 data-i18n="roadmapTitle">Lộ trình Python</h2><p data-i18n="roadmapDesc">Một lộ trình có cấu trúc, từ cú pháp đến dự án thực tế.</p></div></div><div class="roadmap" id="roadmapList"></div></section>
+
+      <section class="view" id="insightsView"><div class="section-intro"><div><span class="pill" data-i18n="lookBack">NHÌN LẠI ĐỂ TIẾN LÊN</span><h2 data-i18n="insightsTitle">Thống kê học tập</h2><p data-i18n="insightsDesc">Hiểu thói quen của bạn và điều chỉnh kế hoạch thông minh hơn.</p></div></div><div class="stats-grid insight-stats" id="insightStats"></div><div class="dashboard-grid"><article class="panel"><div class="panel-head"><h3 data-i18n="timeByTopic">Thời gian theo chủ đề</h3></div><div id="topicBars" class="topic-bars"></div></article><article class="panel"><div class="panel-head"><h3 data-i18n="moodOverview">Cảm nhận sau buổi học</h3></div><div id="moodChart" class="mood-chart"></div></article></div></section>
+
+      <section class="view" id="settingsView"><div class="section-intro"><div><span class="pill" data-i18n="personalize">CÁ NHÂN HÓA</span><h2 data-i18n="settingsTitle">Cài đặt</h2><p data-i18n="settingsDesc">Điều chỉnh mục tiêu, ngôn ngữ và quản lý dữ liệu.</p></div></div><div class="settings-grid"><article class="panel setting-card"><h3 data-i18n="learningGoal">Mục tiêu học tập</h3><label><span data-i18n="weeklyMinutes">Số phút mỗi tuần</span><input type="number" id="weeklyGoalInput" min="30" max="5000" step="30"></label><button class="primary-button" id="saveSettings" data-i18n="saveChanges">Lưu thay đổi</button></article><article class="panel setting-card"><h3 data-i18n="dataManagement">Quản lý dữ liệu</h3><p data-i18n="dataDesc">Xuất bản sao lưu định kỳ để dữ liệu luôn thuộc về bạn.</p><div class="button-stack"><button class="secondary-button" id="exportData" data-i18n="exportData">Xuất dữ liệu (.json)</button><label class="secondary-button file-button"><span data-i18n="importData">Nhập dữ liệu</span><input type="file" id="importData" accept="application/json"></label><button class="danger-button" id="resetData" data-i18n="resetData">Xóa toàn bộ dữ liệu</button></div></article><article class="panel setting-card"><h3 data-i18n="aboutApp">Về ứng dụng</h3><p>PyJourney v1.0 · PWA</p><p><span data-i18n="owner">Chủ sở hữu</span>: <a href="mailto:ttk1205tn@gmail.com">ttk1205tn@gmail.com</a></p><p data-i18n="privacyNote">Dữ liệu hiện chỉ được lưu trên thiết bị này và không gửi tới máy chủ.</p></article></div></section>
+    </main>
+  </div>
+
+  <dialog id="logDialog"><form id="logForm"><div class="dialog-head"><div><small data-i18n="dailySession">DAILY SESSION</small><h2 data-i18n="recordStudy">Ghi lại buổi học</h2></div><button type="button" data-close="logDialog" class="close-button" aria-label="Close">×</button></div><div class="form-grid"><label><span data-i18n="date">Ngày</span><input required type="date" name="date"></label><label><span data-i18n="duration">Thời lượng (phút)</span><input required type="number" name="minutes" min="1" max="1440" placeholder="45"></label><label class="full"><span data-i18n="topic">Chủ đề</span><input required name="topic" maxlength="80" data-i18n-placeholder="topicPlaceholder" placeholder="Ví dụ: List comprehension"></label><label><span data-i18n="mood">Cảm nhận</span><select name="mood"><option value="great">🤩 Great</option><option value="good">🙂 Good</option><option value="okay">😐 Okay</option><option value="hard">😓 Hard</option></select></label><label><span data-i18n="exerciseCount">Số bài đã giải</span><input type="number" name="solved" min="0" max="999" value="0"></label><label class="full"><span data-i18n="learned">Hôm nay bạn học được gì?</span><textarea required name="notes" rows="5" maxlength="1000" data-i18n-placeholder="notesPlaceholder" placeholder="Ghi lại khái niệm, lỗi sai hoặc khám phá mới..."></textarea></label></div><div class="dialog-actions"><button type="button" data-close="logDialog" class="secondary-button" data-i18n="cancel">Hủy</button><button type="submit" class="primary-button" data-i18n="saveLog">Lưu nhật ký</button></div></form></dialog>
+  <dialog id="exerciseDialog"><form id="exerciseForm"><div class="dialog-head"><h2 data-i18n="addExercise">Thêm bài riêng</h2><button type="button" data-close="exerciseDialog" class="close-button">×</button></div><label><span data-i18n="exerciseName">Tên bài tập</span><input required name="title" maxlength="100"></label><label><span data-i18n="level">Cấp độ</span><select name="level"><option value="beginner" data-i18n="beginner">Cơ bản</option><option value="intermediate" data-i18n="intermediate">Trung cấp</option><option value="advanced" data-i18n="advanced">Nâng cao</option></select></label><label><span data-i18n="description">Mô tả</span><textarea name="description" rows="3"></textarea></label><div class="dialog-actions"><button type="button" data-close="exerciseDialog" class="secondary-button" data-i18n="cancel">Hủy</button><button type="submit" class="primary-button" data-i18n="add">Thêm</button></div></form></dialog>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
