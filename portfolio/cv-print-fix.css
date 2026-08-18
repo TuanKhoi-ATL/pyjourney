@@ -1,0 +1,18 @@
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { width: 210mm; }
+  .resume { width: 210mm; min-height: 0; padding: 9mm 11mm; }
+  .resume header { padding-bottom: 16px; }
+  .resume h2 { margin: 13px 0 7px; padding-bottom: 5px; }
+  .summary p { font-size: 9px; line-height: 1.45; }
+  .columns { gap: 30px; }
+  .maincol article { margin-bottom: 8px; }
+  .resume ul { margin: 4px 0; }
+  .resume li, .resume p { font-size: 8px; line-height: 1.42; }
+  .pubs li { margin-bottom: 4px; }
+  .tech { margin: 4px 0; }
+  aside { padding-left: 18px; }
+  aside article { margin-bottom: 14px; }
+  aside h4 { margin: 7px 0 2px; }
+  aside > section > p { margin: 2px 0 7px; }
+}
